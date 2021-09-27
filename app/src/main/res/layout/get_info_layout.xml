@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Merhaba, uygulamayı kullanmak için gerekli olan E Devlet TC kimlik numarası ve E Devlet Şifresini girmemişsiniz gibi görünüyor. Uygulamayı kullanmak için bu bilgileri girmelisiniz. Bilgiler herhangi bir sisteme aktarılmayacaktır." />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tcLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E Devlet TC Kimlik Numaranızı Giriniz" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E Devlet Şifrenizi Giriniz" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Giriş Yap" />
+</LinearLayout>
