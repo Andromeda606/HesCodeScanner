@@ -1,4 +1,2 @@
-include ':zxing-android-embedded'
-include ':code-scanner-2.1.0'
 include ':app'
 rootProject.name = "HesChecker"
