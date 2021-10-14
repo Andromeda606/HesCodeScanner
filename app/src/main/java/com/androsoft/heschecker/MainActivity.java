@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                     String code = data[1];
                     hesCodeScan.scan(code, new HesCodeScan.ScanListener() {
                         @Override
-                        public void onSuccess(String tc, String status, String nameAndSurname) {
+                        public void onSuccess(String tc, String status, String nameAndSurname, String vaccination, String isHasta, String negatifStatus) {
                             runOnUiThread(() -> {
                                 TextView dataText = findViewById(R.id.data);
                                 LinearLayout rootLayout = findViewById(R.id.rootLayout);
