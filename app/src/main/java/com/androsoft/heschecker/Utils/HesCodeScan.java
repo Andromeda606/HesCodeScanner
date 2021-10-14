@@ -240,12 +240,15 @@ public class HesCodeScan {
 
                             final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
                             final Matcher matcher = pattern.matcher(response);
-                            String tc = "", status = "", nameSurname = "";
+                            String tc = "", status = "", nameSurname = "", vaccination = "", isHasta = "", negatifStatus = "";
                             while (matcher.find()) {
 
                                 nameSurname = matcher.group(1);
                                 tc = matcher.group(2);
                                 status = matcher.group(4);
+                                vaccination = matcher.group(5);
+                                isHasta = matcher.group(6);
+                                negatifStatus = matcher.group(7);
                             }
                             scanListener.onSuccess(tc, status, nameSurname);
 
@@ -268,7 +271,7 @@ public class HesCodeScan {
     }
 
     public interface ScanListener {
-        public void onSuccess(String tc, String status, String nameAndSurname);
+        public void onSuccess(String tc, String status, String nameAndSurname, String vaccination, String isHasta, String negatifStatus);
 
         public void onError(String errorName);
     }
