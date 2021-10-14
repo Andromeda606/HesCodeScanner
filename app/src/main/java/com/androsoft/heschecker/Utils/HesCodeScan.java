@@ -232,11 +232,23 @@ public class HesCodeScan {
                         if (response.contains("Kuyru")) {
                             loopShow(cookie, scanListener);
                         } else {
-                            final String regex = "<dl class=\"compact\">\\s.*<dt>Adı Soyadı<\\/dt>\\s.*<dd>(.*?)<\\/dd>\\s.*<dt>T\\.C\\. Kimlik Numarası<\\/dt>\\s.*<dd>(.*?)<\\/dd>\\s.*<dt>HES Kodu<\\/dt>\\s.*<dd>(.*?)<\\/dd>\n"
-                                    + "\\s.*<dt>Risk Durumu<\\/dt>\n"
-                                    + "\\s.*<dd>(.*?)<\\/dd>\n"
+                            final String regex = "<dl class=\"compact\">"
+                                    + "\\s.*<dt>Adı Soyadı<\\/dt>"
+                                    + "\\s.<dd>(.?)<\\/dd>"
+                                    + "\\s.*<dt>T\\.C\\. Kimlik Numarası<\\/dt>"
+                                    + "\\s.<dd>(.?)<\\/dd>"
+                                    + "\\s.*<dt>HES Kodu<\\/dt>"
+                                    + "\\s.<dd>(.?)<\\/dd>\n"
                                     + "\\s.*<dt>Geçerlilik Zamanı<\\/dt>\n"
-                                    + "\\s.*<dd>(.*?)<\\/dd>";
+                                    + "\\s.<dd>(.?)<\\/dd>"
+                                    + "\\s.*<dt>Risk Durumu<\\/dt>\n"
+                                    + "\\s.<dd>(.?)<\\/dd>\n"
+                                    + "\\s.*<dt>Aşılı<\\/dt>\n"
+                                    + "\\s.<dd>(.?)<\\/dd>\n"
+                                    + "\\s.*<dt>Geçirilmiş Hastalık<\\/dt>\n"
+                                    + "\\s.<dd>(.?)<\\/dd>\n"
+                                    + "\\s.*<dt>Son 48 Saatte Negatif Test<\\/dt>\n"
+                                    + "\\s.<dd>(.?)<\\/dd>\n";
 
                             final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
                             final Matcher matcher = pattern.matcher(response);
@@ -250,7 +262,7 @@ public class HesCodeScan {
                                 isHasta = matcher.group(6);
                                 negatifStatus = matcher.group(7);
                             }
-                            scanListener.onSuccess(tc, status, nameSurname);
+                            scanListener.onSuccess(tc, status, nameSurname, vaccination, isHasta, negatifStatus);
 
                         }
                     }
